@@ -4,9 +4,12 @@ describe('SignUp Controller', () => {
   test('should return 400 if no name is provided', () => {
     const signUpController = new SignUpController()
     const httpRequest = {
-      email: 'any_email@mail.com',
-      password: 'any_password',
-      passwordConfirmation: 'any_password'
+      body: {
+        name: undefined,
+        email: 'any_email@mail.com',
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
     }
 
     const httpResponse = signUpController.handle(httpRequest)
@@ -19,9 +22,12 @@ describe('SignUp Controller', () => {
   test('should return 400 if no email is provided', () => {
     const signUpController = new SignUpController()
     const httpRequest = {
-      name: 'any_name',
-      password: 'any_password',
-      passwordConfirmation: 'any_password'
+      body: {
+        name: 'any_name',
+        email: undefined,
+        password: 'any_password',
+        passwordConfirmation: 'any_password'
+      }
     }
 
     const httpResponse = signUpController.handle(httpRequest)
