@@ -16,9 +16,7 @@ describe('SignUp Controller', () => {
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('name'))
   })
-})
 
-describe('SignUp Controller', () => {
   test('should return 400 if no email is provided', () => {
     const signUpController = new SignUpController()
     const httpRequest = {
